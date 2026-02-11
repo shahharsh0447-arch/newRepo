@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        
+        .navbar{
+            height: 100px;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            background-color: #deb887;
+        }
+
+        /* @media (max-width:750px){
+            .navbar{
+                display: none
+            }
+        } */
+        .nav-logo-section{
+            display: flex;
+            gap: 20px;
+            justify-content: start;
+            align-items: center;
+            font-size: 30px;
+            font-weight: 600;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(72, 70, 70);
+        }
+
+       
+
+        .nav-link{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: grey;
+            gap: 30px;
+        }
+
+        .nav-link a{
+            color: grey;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .nav-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .nav-button button{
+            padding: 10px 20px;
+            background-color: rgba(40, 40, 210, 0.646);
+            border-radius: 10px;
+            border: none;
+        }
+        .nav-button a{
+            color: white;
+            font-weight: 600;
+        }
+
+        .toggle{
+            display: none;
+        }
+        @media (max-width:750px){
+            .nav-logo-section{
+                font-size: 1.5rem;
+                min-width: 200px;
+            }
+            .navbar{
+                justify-content: start;
+                align-content: center;
+                padding-left: 20px;
+            }
+            .nav-link{
+                display: none;
+            }
+            .nav-button{
+                display: none;
+            }
+
+           
+
+            
+            .toggle{
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;  
+                padding: 20px 10px;       
+                background-color: burlywood;
+            }
+            
+           
+        ul li{
+            min-height: 30px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px rgb(124, 117, 117) solid;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .trust-section{
+            grid-template-columns: repeat(2,1fr);
+        }
+        }
+
+        
+        #onclick-toggle{
+            height: auto;
+            display: none;
+            position: absolute;
+            font-size: 16px;
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: white;
+            padding: 5px;
+        }
+
+        .main-content{
+            display: flex;
+            box-sizing: border-box;
+            width: 90%;
+            margin: auto;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border: 2px red solid; 
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .content-right{
+            max-width: 450px;
+            height: 60vh;
+            animation: slideright 2s;
+            /* min-height: 200px;
+            max-height: min-content; */
+        }
+
+        @keyframes slideright{
+            from{
+                margin-left: -500px;
+                opacity: 0;
+                rotate: 50deg;
+                transform: scale(.3);
+            }
+            to{
+                margin-left: 0px;
+                transform: scale(1);
+            }
+        }
+
+
+        .content-left{
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            min-width: 450px;
+            max-width: min-content;
+            justify-content: center;
+            animation: slideleft 3s;
+        }
+
+        @keyframes slideleft{
+            from{
+                margin-left: -500px;
+                opacity: 0;
+            }
+            to{
+                margin-left: 0px;
+                opacity: 1;
+            }
+        }
+
+        @media (max-width:900px){
+            .main-content{
+                padding: 50px;
+            }
+            .content-left{
+                min-width: 100%;
+            }
+            .content-right{
+                min-width: 100%;
+                margin-top: 50px;
+            }
+        }
+
+        @media(max-width:500px){
+            .main-content{
+                padding: 20px;
+            }
+        }
+        .content-img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-btn{
+            background-color: rgba(17, 37, 103, 0.788);
+            padding: 10px 10px;
+            border: none;
+            color: white; 
+            font-weight: 600;
+            border-radius: 5px; 
+        }
+
+
+        .trust-container{
+            margin-top: 50px;
+        }
+
+        .trust-section{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            justify-items: center;
+            align-items: center;
+            gap:30px;
+            width: max-content;
+            background-color: rgba(147, 142, 142, 0.331);
+            margin: auto;
+            font-size: 30px;
+        }
+         .trust-section a{
+            text-decoration: none;
+            color: rgba(88, 79, 79, 0.947);
+        }
+        .trust-section span{
+            font-size: 20px;
+            /* border: 2px green solid; */
+        }
+
+        @media (max-width:750px){
+             .trust-section{
+            grid-template-columns: repeat(2,1fr);
+            gap:10px;
+                }
+        }
+
+        .testimonial{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            margin-top: 50px;
+            max-width: 80% ;
+            border: 2px green solid;
+        }
+        .testimonial-card{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+            border: 2px rgb(196, 209, 19) solid;
+        }
+
+        .testimonial-card div {
+            display: flex;
+            flex-direction: column;
+            max-width: min-content ;
+            min-width: 300px;
+            align-items: center;
+            padding: 10px;
+            text-align: center;
+            border: 1px rgba(110, 99, 99, 0.831) solid;
+        }
+
+        .testimonial-card div:hover{
+            border: 1px black solid;
+            transform: scale(1.02);
+            border-radius: 5px;
+        }
+
+        .testimonial-card img {
+            width: 100px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+
+        .testimonial-name{
+            color: blue;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body onclick="Close()">
+    <div>
+        <div class="navbar">
+            <div class="nav-logo-section">
+                <div class="toggle">
+                    <div class="toggle-btn">
+                        <div>
+                            <button onclick="toggle()" class="btn" style="height: 30px; width: 30px;">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        </div>
+                    <div id="onclick-toggle">
+                        <ul type="none">
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Feature</li>
+                            <li>Pricing</li>
+                            <li>About</li>
+                            <li>About</li>
+                            <li>About</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div> 
+                <i class="fa-solid fa-pen"></i>
+                <span>Study Sync</span>
+            </div>
+            <div class="nav-link">
+                <a href="">Home</a>
+                <a href="">Features</a>
+                <a href="">Pricing</a>
+                <a href="">Blog</a>
+                <a href="">About</a>
+                
+            </div>
+            <div class="nav-button">
+                <button><a href="">Contact us</a></button>
+            </div>
+
+
+     
+            
+        </div>
+          
+        <div>
+            <div class="main-content" >
+                <div class="content-left">
+                    <div >
+                        <h6>Very proud to introduce</h6>
+                        <h1>Seamless learning for bright future</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsum voluptate voluptatibus facilis nam. Enim facere dicta maiores fugiat, amet cumque aspernatur nisi sed accusamus atque accusantium inventore? Aspernatur, repellendus.</p>
+                    </div>
+                    <div style="display: flex;gap: 10px; width:max-content; ">
+                        <button class="content-btn">Start Now</button>
+                        <button style="background-color: rgba(17, 17, 17, 0.788);padding: 10px 10px;border: none;color: white; font-weight: 600;border-radius: 5px;">Take Tour</button>
+                    </div>
+                </div>
+                
+                <div class="content-right">
+                    <img src="./4.jpg" alt="" class="content-img">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="trust-container">
+            <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+                <h1>Trusted by the best </h1>
+            </div>
+            <div class="trust-section">
+                
+                <div class="trust-logo">
+                   <a href="">
+                     <i class="fa-brands fa-google"></i> 
+                    <span>Google</span>
+                   </a>
+                </div>
+                <div>
+                    <a href="">
+                        <i class="fa-brands fa-microsoft"></i>
+                    <span>Microsoft</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+                        <i class="fa-brands fa-linkedin"></i>
+                    <span>linkedin</span>
+                    </a>
+                </div>
+                <div>
+                   <a href="">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>Facebook</span>
+                   </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+           <div>
+                <h1>What Others About Us</h1>
+           </div>
+           <div class="testimonial-card">
+                <div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, quisquam animi omnis totam vol animi omnis totam volanimi omnis totam vol"</p>
+                    <img src="./2.jpg" alt="">
+                    <p class="testimonial-name">Sara John</p>
+                    <p>8th grade english teacher</p>
+                </div>
+                <div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, quisquam animi omnis totam vol animi omnis totam volanimi omnis totam vol"</p>
+                    <img src="./2.jpg" alt="">
+                    <p class="testimonial-name">Sara John</p>
+                    <p>8th grade english teacher</p>
+                </div>
+                <div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, quisquam animi omnis totam vol animi omnis totam volanimi omnis totam vol"</p>
+                    <img src="./2.jpg" alt="">
+                    <p class="testimonial-name">Sara John</p>
+                    <p>8th grade english teacher</p>               
+                </div>
+           </div>
+        </div>
+    </div>
+</body>
+<script>
+                var sty= document.getElementById("onclick-toggle").style.display
+    function toggle(){
+            var sty= document.getElementById("onclick-toggle").style.display
+            if (sty==="block") {
+                document.getElementById("onclick-toggle").style.display="none"
+            }
+            else{
+                document.getElementById("onclick-toggle").style.display="block"
+            }                 
+    }   
+
+   
+</script>
+</html>

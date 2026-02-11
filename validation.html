@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeyup="clickme(this)">
+    <div class="value"></div>
+    <button onclick="clickme()">click me</button>
+</body>
+    <script>
+        clickme = (ele) => {
+            if(isNaN(ele.value)){
+            document.getElementsByClassName("value")[0].innerText = "please enter    a number";
+            } else {
+                if(ele.value.length>10){
+                    console.log(100);
+                    
+                    document.getElementsByClassName("value")[0].innerText = "please enter less than 10 digits";
+                    return
+                }
+                document.getElementsByClassName("value")[0].innerText = "a number";
+
+            }
+        }
+    </script>
+</html>
